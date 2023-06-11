@@ -37,6 +37,7 @@ func Run() error {
 	app.Get("/room/:uuid/websocket", websocket.New(handlers.RoomWebsocket, websocket.Config{
 		HandshakeTimeout: 10 * time.Second,
 	}))
+	app.Get("/room/:uuid/chat/websocket", websocket.New(handlers.RoomChatWebsocket))
 
 	w.Rooms = make(map[string]*w.Room)
 	w.Streams = make(map[string]*w.Room)
