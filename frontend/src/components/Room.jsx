@@ -7,12 +7,9 @@ import Chat from './Chat'
 
 function Room() {
     const {
-        roomid,
         RoomWebsocketAddr,
         setRoomWebsocketAddr,
-        ChatWebsocketAddr,
         setChatWebsocketAddr,
-        ViewerWebsocketAddr,
         setViewerWebsocketAddr,
     } = useContext(MyContext)
 
