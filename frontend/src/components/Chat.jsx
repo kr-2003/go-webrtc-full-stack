@@ -81,7 +81,7 @@ function Chat() {
                     }
                     for (var i = 0; i < messages.length; i++) {
                         var item = document.createElement("div");
-
+                        item.classList.add("flex-1", "bg-indigo-400", "text-white", "p-2", "rounded-lg", "mb-2", "relative")
                         item.innerText = currentTime() + " - " + messages[i];
                         appendLog(item);
                     }
@@ -110,7 +110,7 @@ function Chat() {
                         <p>Chat</p>
                         <i id="chat-alert"></i>
                     </div>
-                    <div id="chat-content">
+                    <div className='w-100 h-96 flex flex-col border shadow-md bg-white' id="chat-content">
                         <div class="body">
                             <div id="log"></div>
                         </div>
@@ -118,7 +118,7 @@ function Chat() {
                             <div class="field has-addons">
                                 <div class="send">
                                     <div class="control-input">
-                                        <input class="input" id="msg" type="text" placeholder="type message..." />
+                                        <input class="input w-full rounded-full border border-gray-200" id="msg" type="text" placeholder="type message..." />
                                     </div>
                                     <div class="control">
                                         <button id="chat-button" class="button is-info">Send</button>
