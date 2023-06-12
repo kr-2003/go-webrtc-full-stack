@@ -18,14 +18,26 @@ function Home() {
     console.log(roomid)
     return (
         <>
-            <div>Home</div>
-            <div>
-                <button onClick={createRoom} className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
-                    <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                        Create Room
-                    </span>
-                </button>
+            <div className='grid place-content-center grid-cols-2 max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 bg-[#190C2E] h-[100vh] pt-10'>
+                <div>
+                    <div>
+                        <h1 class="block text-3xl font-bold text-gray-800 sm:text-4xl md:text-5xl lg:text-6xl dark:text-white">Video Chat Application</h1>
+                        <p class="mt-3 text-lg text-gray-800 dark:text-gray-400">Introducing a new way for your brand to reach the creative community.</p>
+                    </div>
+                    <div className='grid grid-cols-3 w-100 mt-10'>
+                        <div class="flex justify-between items-baseline">
+                            <button onClick={createRoom} type="submit" class="bg-purple-500 text-white py-2 px-6 rounded-md hover:bg-purple-600 ">New Meeting</button>
+                        </div>
+                        <input type="Password" placeholder="Enter Room Link" class="border h-5 px-3 py-5 hover:outline-none focus:outline-none focus:ring-indigo-500 focus:ring-1 rounded-md" />
+
+                        <div class="flex justify-between items-baseline ml-2">
+                            <button type="submit" class="bg-purple-500 text-white py-2 px-6 rounded-md hover:bg-purple-600 ">Join</button>
+                        </div>
+                    </div>
+                </div>
+
             </div>
+
         </>
 
     )

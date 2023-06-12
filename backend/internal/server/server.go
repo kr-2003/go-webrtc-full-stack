@@ -38,8 +38,25 @@ func Run() error {
 		HandshakeTimeout: 10 * time.Second,
 	}))
 	app.Get("/room/:uuid/chat/websocket", websocket.New(handlers.RoomChatWebsocket))
+	app.Get("/stream/:suuid", handlers.Stream)
+	app.Get("/stream/:suuid/websocket", websocket.New(handlers.StreamWebsocket, websocket.Config{
+		HandshakeTimeout: 10 * time.Second,
+	}))
+	app.Get("/stream/:suuid/chat/websocket", websocket.New(handlers.StreamChatWebsocket))
+	app.Get("/stream/:suuid/viewer/websocket", websocket.New(handlers.StreamViewerWebsocket))
 
+	
 	w.Rooms = make(map[string]*w.Room)
 	w.Streams = make(map[string]*w.Room)
+	go dispatchKeyFrames()
+
 	return app.Listen(*addr)
+}
+
+func dispatchKeyFrames() {
+	for range time.NewTicker(time.Second * 3).C {
+		for _, room := range w.Rooms {
+			room.Peers.DispatchKeyFrame()
+		}
+	}
 }
