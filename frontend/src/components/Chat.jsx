@@ -114,7 +114,7 @@ function Chat() {
                         <div class="body">
                             <div id="log"></div>
                         </div>
-                        <form id="form" autocomplete="off">
+                        <form className='fixed absolute bottom-0' id="form" autocomplete="off">
                             <div class="field has-addons">
                                 <div class="send">
                                     <div class="control-input">
