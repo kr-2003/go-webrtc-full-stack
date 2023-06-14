@@ -20,15 +20,15 @@ const connect = (stream, RoomWebsocketAddr) => {
 
     let col = document.createElement("div");
     console.log(col);
-    col.className = "column is-6 peer";
+    col.className = "column is-6 peer w-[100%] h-[100%] rounded-lg";
     let el = document.createElement(event.track.kind);
+    el.className = "rounded-lg"
     el.srcObject = event.streams[0];
-    el.setAttribute("controls", "true");
     el.setAttribute("autoplay", "true");
     el.setAttribute("playsinline", "true");
     col.appendChild(el);
-    document.getElementById("noone").style.display = "none";
-    document.getElementById("nocon").style.display = "none";
+    // document.getElementById("noone").style.display = "none";
+    // document.getElementById("nocon").style.display = "none";
     document.getElementById("videos").appendChild(col);
 
     event.track.onmute = function (event) {
@@ -39,10 +39,10 @@ const connect = (stream, RoomWebsocketAddr) => {
       if (el.parentNode) {
         el.parentNode.remove();
       }
-      if (document.getElementById("videos").childElementCount <= 3) {
-        document.getElementById("noone").style.display = "grid";
-        document.getElementById("noonein").style.display = "grid";
-      }
+      // if (document.getElementById("videos").childElementCount <= 3) {
+      //   document.getElementById("noone").style.display = "grid";
+      //   document.getElementById("noonein").style.display = "grid";
+      // }
     };
   };
 
@@ -74,8 +74,8 @@ const connect = (stream, RoomWebsocketAddr) => {
     while (pr.childElementCount > 3) {
       pr.lastChild.remove();
     }
-    document.getElementById("noone").style.display = "none";
-    document.getElementById("nocon").style.display = "flex";
+    // document.getElementById("noone").style.display = "none";
+    // document.getElementById("nocon").style.display = "flex";
     setTimeout(function () {
       connect(stream);
     }, 1000);

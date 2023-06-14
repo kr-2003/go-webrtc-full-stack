@@ -31,6 +31,7 @@ function Chat() {
             function appendLog(item) {
                 var doScroll = log.scrollTop > log.scrollHeight - log.clientHeight - 1;
                 log.appendChild(item);
+                console.log(doScroll)
                 if (doScroll) {
                     log.scrollTop = log.scrollHeight - log.clientHeight;
                 }
@@ -103,33 +104,38 @@ function Chat() {
 
     }, [ChatWebsocketAddr])
     return (
-        <div>
-            <div id="chat">
-                <article class="message chat">
-                    <div class="message-header" onclick="slideToggle()">
-                        <p>Chat</p>
-                        <i id="chat-alert"></i>
-                    </div>
-                    <div className='w-100 h-96 flex flex-col border shadow-md bg-white' id="chat-content">
-                        <div class="body">
-                            <div id="log"></div>
+        <>
+            <div className='h-[600px] rounded-md overflow-y-scroll'>
+                <div id="chat" className="flex flex-col h-[100%] bg-white relative overflow-y-scroll rounded-lg">
+                    <article class="message chat overflow-y-scroll">
+                        <div class="message-header p-4" onclick="slideToggle()">
+                            <p>Messages</p>
+                            <i id="chat-alert"></i>
                         </div>
-                        <form className='fixed absolute bottom-0' id="form" autocomplete="off">
-                            <div class="field has-addons">
-                                <div class="send">
-                                    <div class="control-input">
-                                        <input class="input w-full rounded-full border border-gray-200" id="msg" type="text" placeholder="type message..." />
-                                    </div>
-                                    <div class="control">
-                                        <button id="chat-button" class="button is-info">Send</button>
-                                    </div>
+                        <div className='w-100 h-100 flex flex-col bg-white overflow-y-scroll' id="chat-content">
+                            <div class="body overflow-y-hidden p-4">
+                                <div id="log" className='overflow-y-scroll h-100'></div>
+                            </div>
+                        </div>
+                    </article>
+                    <form className='mt-auto' id="form" autocomplete="off">
+                        <div class="field has-addons">
+                            <div class="send grid grid-cols-5 w-[100%]">
+                                <div class="control-input col-span-4">
+                                    <input class="h-14 p-4 input w-full rounded-full border border-gray-200" id="msg" type="text" placeholder="type message..." />
+                                </div>
+                                <div class="control col-span-1 w-100 h-100 flex items-center justify-center">
+                                    <button id="chat-button" class="button is-info h-[100%] w-[100%]">Send</button>
                                 </div>
                             </div>
-                        </form>
-                    </div>
-                </article>
+                        </div>
+                    </form>
+                </div>
+
             </div>
-        </div>
+
+
+        </>
     )
 }
 
