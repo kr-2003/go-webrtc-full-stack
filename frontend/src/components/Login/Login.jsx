@@ -32,8 +32,8 @@ function Login() {
     }
     return (
 
-        <div class="relative py-3 sm:w-96 mx-auto text-center">
-            <span class="text-2xl font-light ">Login to your account</span>
+        <div class="relative py-3 sm:w-96 mx-auto text-center items-center">
+            <span class="text-2xl font-light text-white">Login to your account</span>
             <div class="mt-4 bg-white shadow-md rounded-lg text-left">
                 <div class="h-2 bg-purple-400 rounded-t-md"></div>
                 <div class="px-8 py-6 ">

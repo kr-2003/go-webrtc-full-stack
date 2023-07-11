@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function Register() {
+    const navigate = useNavigate();
     const [firstName, setfirstName] = useState("");
     const [lastName, setlastName] = useState("");
     const [password, setpassword] = useState("");
@@ -34,13 +36,14 @@ function Register() {
             user_type: "USER"
         }).then(res => {
             console.log(res);
+            navigate("/dashboard")
         }).catch(err => {
             console.log(err)
         })
     }
     return (
         <div class="relative py-3 sm:w-96 mx-auto text-center">
-            <span class="text-2xl font-light ">Login to your account</span>
+            <span class="text-2xl font-light text-white ">Register to your account</span>
             <div class="mt-4 bg-white shadow-md rounded-lg text-left">
                 <div class="h-2 bg-purple-400 rounded-t-md"></div>
                 <div class="px-8 py-6 ">

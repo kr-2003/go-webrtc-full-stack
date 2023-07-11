@@ -49,7 +49,7 @@ func Run() error {
 	w.Rooms = make(map[string]*w.Room)
 	w.Streams = make(map[string]*w.Room)
 	go dispatchKeyFrames()
-
+	println("Listening on port", *addr);
 	return app.Listen(*addr)
 }
 

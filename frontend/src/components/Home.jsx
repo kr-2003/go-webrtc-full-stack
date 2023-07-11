@@ -18,7 +18,7 @@ function Home() {
     console.log(roomid)
     return (
         <>
-            <div className='grid place-content-center grid-cols-2 max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 bg-[#190C2E] h-[100vh] pt-10'>
+            <div className='grid place-content-center grid-cols-2 max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8 bg-[#190C2E] h-[100vh] pt-10'>
                 <div>
                     <div>
                         <h1 class="block text-3xl font-bold text-gray-800 sm:text-4xl md:text-5xl lg:text-6xl dark:text-white">Video Chat Application</h1>
