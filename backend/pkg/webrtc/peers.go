@@ -25,11 +25,11 @@ var (
 		ICEServers: []webrtc.ICEServer{
 			{
 
-				URLs: []string{"stun:turn.videocall-backend-ni6ay4ndaq-em.a.run.app:3478"},
+				URLs: []string{"stun:turn.localhost:3478"},
 			},
 			{
 
-				URLs: []string{"turn:turn.videocall-backend-ni6ay4ndaq-em.a.run.app:3478"},
+				URLs: []string{"turn:turn.localhost:3478"},
 
 				Username: "akhil",
 

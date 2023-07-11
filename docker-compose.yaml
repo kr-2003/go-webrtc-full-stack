@@ -1,0 +1,23 @@
+version: '3'
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "9090:9090"
+  auth:
+    build: 
+      context: ./auth
+      dockerfile: Dockerfile
+    ports:
+      - "8010:8010"
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+      - auth
