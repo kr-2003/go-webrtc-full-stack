@@ -16,7 +16,7 @@ function Room() {
 
     const { id } = useParams()
     useEffect(() => {
-        axios.get(`http://localhost:9090/room/${id}`)
+        axios.get(`https://videocall-backend-ni6ay4ndaq-em.a.run.app/room/${id}`)
             .then((response) => {
                 console.log(response.data)
                 setRoomWebsocketAddr(response.data.RoomWebsocketAddr)
